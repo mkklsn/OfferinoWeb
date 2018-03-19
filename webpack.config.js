@@ -1,11 +1,10 @@
 const path = require('path'),
       HtmlWebpackPlugin = require('html-webpack-plugin'),
+      MiniCssExtractPlugin = require('mini-css-extract-plugin'),
       CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: {
-    main: './src/client/js/main.jsx'
-  },
+  entry: { main: './src/client/js/main.jsx' },
   output: {
     filename: 'main.bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -16,9 +15,15 @@ module.exports = {
       {
         test: /\.jsx$/,
         include: path.resolve(__dirname, 'src/client/js'),
-        use: {
-          loader: 'babel-loader'
-        }
+        use: { loader: 'babel-loader' }
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' }
+        ]
       }
     ]
   },
@@ -31,6 +36,9 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'main.html',
       template: 'src/client/main.html'
+    }),
+    new MiniCssExtractPlugin({
+      filename: "main.css"
     })
   ]
 };
