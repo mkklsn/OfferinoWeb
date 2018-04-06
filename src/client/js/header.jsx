@@ -1,4 +1,5 @@
 import React from 'react';
+import style from '../styles/header.scss';
 
 class HeaderStrip extends React.Component {
     constructor(props){
@@ -8,7 +9,7 @@ class HeaderStrip extends React.Component {
     render(){
         return(
             <div className="header-strip">
-                <span>This is the header strip.</span>
+                <div className="title">Offerino</div>
             </div>
         );
     }

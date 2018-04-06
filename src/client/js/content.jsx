@@ -1,4 +1,6 @@
 import React from 'react';
+import Feed from './feed.jsx';
+import style from '../styles/content.scss';
 
 class Content extends React.Component {
     constructor(props) {
@@ -8,7 +10,7 @@ class Content extends React.Component {
     render(){
         return(
             <div className="content">
-                <span>This is the content.</span>
+                <Feed offers={[]}/>
             </div>  
         );
     }

@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import HeaderStrip from './header.jsx';
 import Content from './content.jsx';
-import styles from '../styles/main.scss'
+import styles from '../styles/main.scss';
 
 class Main extends React.Component {
   constructor(props){
@@ -21,5 +21,5 @@ class Main extends React.Component {
 
 ReactDOM.render(
   <Main />,
-  document.getElementById("main")
+  document.getElementById("app")
 );
