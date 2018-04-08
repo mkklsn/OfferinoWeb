@@ -7,7 +7,7 @@ module.exports = {
   entry: { main: './src/client/js/main.jsx' },
   output: {
     filename: 'main.bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, 'wwwroot')
   },
   devtool: 'inline-source-map',
   module: {
@@ -28,11 +28,11 @@ module.exports = {
     ]
   },
   devServer: {
-    contentBase: 'dist',
+    contentBase: 'wwwroot',
     port: 7771
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['wwwroot']),
     new HtmlWebpackPlugin({
       filename: 'main.html',
       template: 'src/client/main.html'

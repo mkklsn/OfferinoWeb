@@ -5,17 +5,32 @@ import style from '../styles/feed.scss';
 class Feed extends React.Component {
     constructor(props){
         super(props);
+        
+        this.state = {
+            offers: [] 
+        };
+    }
+
+    componentDidMount(){
+        fetch("main/offers", {headers: new Headers({
+            "Accept": "application/json"
+        })})
+        .then(response => response.json())
+        .then(items => this.setState({ offers: items }));
+
+        //add error handling
     }
 
     render(){
-        this.props.feed = [];
-        this.props.offers.map((item) => {
-            this.props.feed.push(<Offer title={item.title} owner={item.owner} />);
-        });
+        //add error handling
+
+        let feed = this.state.offers.map((item) => 
+            <Offer title={item.Title} owner={item.Owner} />
+        );
 
         return(
             <div className="feed">
-                {this.props.feed}
+                {feed}
             </div>
         );
     }

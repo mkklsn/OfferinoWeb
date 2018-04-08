@@ -1,4 +1,8 @@
 .git/
 node_modules/
 dist/
+.vscode/
+obj/
+bin/
+wwwroot/
 yarn-error.log
