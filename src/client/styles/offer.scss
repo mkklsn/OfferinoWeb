@@ -25,7 +25,17 @@
     .owner {
         font-size: 2.8vh;
         color: #818181;
-        margin: 1vh 0 2vh 1vh;
+        margin: 1vh 0 0 1vh;
+    }
+
+    .icons {
+        margin: 2.5vh 0 2vh 1vh;
+
+        svg {
+            height: 3.5vh;
+            width: 3.5vh;
+            color: #f3bb72;
+        }
     }
 
     .word-wrap {

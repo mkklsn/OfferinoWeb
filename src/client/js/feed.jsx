@@ -26,7 +26,7 @@ class Feed extends React.Component {
         //add error handling
 
         let feed = this.state.offers.map((item) => 
-            <Offer title={item.Title} owner={item.Owner} />
+            <Offer title={item.Title} owner={item.Owner} faicon={item.FaIcon} />
         );
 
         return(
