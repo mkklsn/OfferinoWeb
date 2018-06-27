@@ -5,7 +5,7 @@ using Newtonsoft.Json;
 
 namespace OfferinoWeb.src.server {
     public class MainController : Controller {
-        const string offerUrl = "http://localhost:7777/api/offer";
+        const string offerUrl = "http://localhost:5790/api/offer";
 
         public IActionResult Index(){
             return File("~/main.html", "text/html");

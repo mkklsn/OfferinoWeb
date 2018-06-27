@@ -1,5 +1,6 @@
 import React from 'react';
 import Offer from './offer.jsx';
+import 'whatwg-fetch';
 import style from '../styles/feed.scss';
 
 class Feed extends React.Component {

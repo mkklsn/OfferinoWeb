@@ -1,15 +1,22 @@
+@import "shared";
+
 .header-strip {
-    background-color: #5f5f5f;
-    height: 22vh;
-    max-height: 22vh;
+    display: flex;
+    justify-content: space-between;
+    background-color: $header-bg-color;
+    min-height: $header-height;
+    height: $header-height;
+    max-height: $header-height;
     min-width: 100%;
 
     .title {
         min-width: 10vw;
-        height: 10vh;
-        max-height: 10vh;
-        font-size: 8vh;
-        margin: 2.5vh 0 0 2vh;
+        min-height: $header-height;
+        height: $header-height;
+        max-height: $header-height;
+        line-height: $header-height;
+        font-size: 5.5vh;
         color: #f1f1f1;
+        padding-left: 2.5vh;
     }
 }

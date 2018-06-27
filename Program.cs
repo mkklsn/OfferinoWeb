@@ -21,7 +21,7 @@ namespace OfferinoWeb
             WebHost.CreateDefaultBuilder(args)
                 .UseKestrel()
                 .UseStartup<Startup>()
-                .UseUrls("http://localhost:7771")
+                .UseUrls("http://localhost:7774")
                 .Build();
     }
 }

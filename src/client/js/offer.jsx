@@ -9,8 +9,8 @@ class Offer extends React.Component {
     render(){
         return(
             <div className="offer">
-                <div className="title">{this.props.title}</div>
-                <div className="owner">{this.props.owner}</div>
+                <div className="title word-wrap">{this.props.title}</div>
+                <div className="owner word-wrap">{this.props.owner}</div>
             </div>
         );
     }
