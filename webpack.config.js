@@ -29,7 +29,7 @@ module.exports = {
   },
   devServer: {
     contentBase: 'wwwroot',
-    port: 7771
+    port: 7772
   },
   plugins: [
     new CleanWebpackPlugin(['wwwroot']),
