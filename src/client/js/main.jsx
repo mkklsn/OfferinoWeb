@@ -1,6 +1,5 @@
 import React from 'react';
 import HeaderStrip from './header.jsx';
-import HeaderStripOut from './header_logged_out.jsx';
 import Content from './content.jsx';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import icons from './icons.js';
