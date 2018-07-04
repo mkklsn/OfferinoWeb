@@ -19,4 +19,28 @@
         color: #f1f1f1;
         padding-left: 2.5vh;
     }
+
+    .user-profile {
+        font-size: 4vh;
+        min-height: 12vh;
+        height: 12vh;
+        max-height: 12vh;
+        line-height: 12vh;
+        margin-right: 1vh;
+        color: #ffffff;
+    }
+
+    .btn-sign-in {
+        background-color: #ff7b00;
+        color: #ffffff;
+        border: none;
+        display: block;
+        font-size: 4vh;
+        min-height: 12vh;
+        height: 12vh;
+        max-height: 12vh;
+        padding-left: 2.2vh;
+        padding-right: 2.2vh;
+        margin: 0;
+    }
 }

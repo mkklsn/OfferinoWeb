@@ -4,7 +4,7 @@ const path = require('path'),
       CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: { main: './src/client/js/main.jsx' },
+  entry: { main: './src/client/js/app.jsx' },
   output: {
     filename: 'main.bundle.js',
     path: path.resolve(__dirname, 'wwwroot')
@@ -13,7 +13,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx$/,
+        test: /\.jsx?$/,
         include: path.resolve(__dirname, 'src/client/js'),
         use: { loader: 'babel-loader' }
       },
@@ -26,6 +26,9 @@ module.exports = {
         ]
       }
     ]
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
   devServer: {
     contentBase: 'wwwroot',

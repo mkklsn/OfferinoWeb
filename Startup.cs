@@ -28,6 +28,11 @@ namespace OfferinoWeb
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Main}/{action=Index}/{id?}");
+
+                routes.MapRoute(
+                    name: "callback",
+                    template: "callback",
+                    defaults: new { controller = "Main", action = "Callback" });
             });
         }
     }

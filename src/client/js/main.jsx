@@ -1,32 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import HeaderStrip from './header.jsx';
+import HeaderStripOut from './header_logged_out.jsx';
 import Content from './content.jsx';
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { 
-  faUtensils, faShoppingCart, faPalette, 
-  faDumbbell, faTshirt, faQuestionCircle 
-} from '@fortawesome/free-solid-svg-icons';
+import icons from './icons.js';
 import styles from '../styles/main.scss';
 
-library.add(faUtensils, faShoppingCart, faPalette, faDumbbell, faTshirt, faQuestionCircle);
+library.add(icons);
 
 class Main extends React.Component {
   constructor(props){
     super(props);
   }
 
-  render() {
+  render() {    
     return (
       <div className="main">
-        <HeaderStrip />
-        <Content />
+          <HeaderStrip {...this.props} />
+          <Content />
       </div>
     );
   }
 }
 
-ReactDOM.render(
-  <Main />,
-  document.getElementById("app")
-);
+module.exports = Main;
