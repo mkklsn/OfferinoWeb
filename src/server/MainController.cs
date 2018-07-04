@@ -11,6 +11,10 @@ namespace OfferinoWeb.src.server {
             return File("~/main.html", "text/html");
         }
 
+        public IActionResult Callback(){
+            return Index();
+        }
+
         public async Task<IActionResult> Offers(){
             string offers;
             using(var client = new HttpClient()){

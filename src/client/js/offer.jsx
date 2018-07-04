@@ -13,7 +13,7 @@ class Offer extends React.Component {
                 <div className="title word-wrap">{this.props.title}</div>
                 <div className="owner word-wrap">{this.props.owner}</div>
                 <div className="icons">
-                    <FontAwesomeIcon icon={this.props.faicon} />
+                    <FontAwesomeIcon icon={[this.props.faicon[0],this.props.faicon[1]]} />
                 </div>
             </div>
         );

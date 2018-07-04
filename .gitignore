@@ -6,3 +6,4 @@ bin/
 wwwroot/
 yarn-error.log
 .DS_Store
+auth0-variables.js

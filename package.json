@@ -9,10 +9,10 @@
   "repository": "https://github.com/mkklsn/OfferinoWeb.git",
   "author": "mkklsn",
   "devDependencies": {
-    "@babel/core": "^7.0.0-beta.40",
-    "@babel/preset-env": "^7.0.0-beta.40",
-    "@babel/preset-react": "^7.0.0-beta.40",
-    "babel-loader": "8.0.0-beta.2",
+    "@babel/core": "^7.0.0-beta.51",
+    "@babel/preset-env": "^7.0.0-beta.51",
+    "@babel/preset-react": "^7.0.0-beta.51",
+    "babel-loader": "^8.0.0-beta",
     "clean-webpack-plugin": "^0.1.18",
     "css-loader": "^0.28.11",
     "html-webpack-plugin": "^3.0.6",
@@ -29,8 +29,12 @@
     "@fortawesome/free-regular-svg-icons": "^5.1.0-11",
     "@fortawesome/free-solid-svg-icons": "^5.1.0",
     "@fortawesome/react-fontawesome": "^0.1.0",
+    "auth0-js": "^9.6.1",
+    "history": "^4.7.2",
+    "prop-types": "^15.6.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-router-dom": "^4.3.1",
     "whatwg-fetch": "^2.0.4"
   }
 }
