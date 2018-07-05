@@ -26,8 +26,11 @@
         height: 12vh;
         max-height: 12vh;
         line-height: 12vh;
-        margin-right: 1vh;
         color: #ffffff;
+
+        span {
+            margin-right: 1vh;
+        }
     }
 
     .btn-sign-in {
