@@ -8,8 +8,9 @@ class Loading extends React.Component {
     }
 
     render() {
+        let divClass = this.props.isFullPage && 'loading-page';
         return (
-            <div className="loading-page">
+            <div className={divClass}>
                 Loading... <FontAwesomeIcon icon="circle-notch" spin />
             </div>
         );
