@@ -20,7 +20,7 @@ export const baseRoutes = () => {
           <Route path="/" render={(props) => <Main auth={auth} {...props} />} />
           <Route path="/callback" render={(props) => {
             handleAuthentication(props);
-            return <Loading {...props} /> 
+            return <Loading isFullPage={true} /> 
           }}/>
         </div>
     </Router>
