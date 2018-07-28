@@ -41,14 +41,14 @@ class Feed extends React.Component {
 
     processFeedItems = () => {
         if(this.state.offers.length > 1){
-            return this.state.offers.map((item) => 
-                <Offer title={item.Title} owner={item.Owner} faicon={item.FaIcon} />
+            return this.state.offers.map((item, i) => 
+                <Offer key={i} title={item.Title} owner={item.Owner} faicon={item.FaIcon} />
             );
         }
         else {
             let feed = [];
             for(let x = 0; x < 7; x++) {
-                feed.push(<Offer title={<Loading />} faicon={['','']} />);
+                feed.push(<Offer key={x} title={<Loading />} faicon={['','']} />);
             }
             return feed;
         }

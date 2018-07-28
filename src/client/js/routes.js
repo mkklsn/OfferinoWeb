@@ -1,5 +1,6 @@
 import React from 'react';
-import { Router, Route } from 'react-router';
+import Router from 'react-router/es/Router';
+import Route from 'react-router/es/Route';
 import Main from './main.jsx';
 import Loading from './loading.jsx';
 import Auth from './auth.js';

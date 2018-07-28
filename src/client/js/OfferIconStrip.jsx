@@ -1,11 +1,10 @@
 import React from 'react';
 import iconSet from './icons.js';
-import style from '../styles/loading.scss';
 
 var library;
 var FontAwesomeIcon;
 
-class Loading extends React.Component {
+class OfferIconStrip extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -22,19 +21,17 @@ class Loading extends React.Component {
         });
     }
 
-    render() {
-        let divClass = this.props.isFullPage && 'loading-page';
+    render(){
+        let strip = this.state && this.state.loaded 
+            ? <FontAwesomeIcon icon={this.props.icon} />
+            : <span>Loading...</span>;
 
-        let icon = this.state && this.state.loaded
-            ? <FontAwesomeIcon icon="circle-notch" spin />
-            : '';
-
-        return (
-            <div className={divClass}>
-                Loading... { icon }
+        return(
+            <div className="icons">
+                { strip }
             </div>
         );
     }
 }
 
-module.exports = Loading;
+module.exports = OfferIconStrip;

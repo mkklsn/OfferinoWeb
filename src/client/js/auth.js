@@ -1,33 +1,45 @@
 import history from './history.js';
-import auth0 from 'auth0-js';
 import { AUTH_CONFIG } from '../../../auth0-variables.js';
 
 class Auth {
-  auth0 = new auth0.WebAuth({
-    domain: AUTH_CONFIG.domain,
-    clientID: AUTH_CONFIG.clientID,
-    redirectUri: AUTH_CONFIG.redirectUri,
-    audience: AUTH_CONFIG.audience,
-    responseType: 'token id_token',
-    scope: 'openid profile'
-  });
-
   userProfile;
 
   login = () => {
-    this.auth0.authorize();
+    import(/* webpackChunkName: "auth0-js" */'auth0-js').then(module => {
+      this.auth0 = new module.WebAuth({
+        domain: AUTH_CONFIG.domain,
+        clientID: AUTH_CONFIG.clientID,
+        redirectUri: AUTH_CONFIG.redirectUri,
+        audience: AUTH_CONFIG.audience,
+        responseType: 'token id_token',
+        scope: 'openid profile'
+      });
+
+      this.auth0.authorize();
+    });
   }
 
   handleAuthentication = () => {
-    this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        this.setSession(authResult);
-      } 
-      else if (err) {
-        history.push('/');
-        console.log(err);
-        alert(`Error: ${err.error}. Check the console for further details.`);
-      }
+    import(/* webpackChunkName: "auth0-js" */'auth0-js').then(module => {
+      this.auth0 = new module.WebAuth({
+        domain: AUTH_CONFIG.domain,
+        clientID: AUTH_CONFIG.clientID,
+        redirectUri: AUTH_CONFIG.redirectUri,
+        audience: AUTH_CONFIG.audience,
+        responseType: 'token id_token',
+        scope: 'openid profile'
+      });
+
+      this.auth0.parseHash((err, authResult) => {
+        if (authResult && authResult.accessToken && authResult.idToken) {
+          this.setSession(authResult);
+        } 
+        else if (err) {
+          history.push('/');
+          console.log(err);
+          alert(`Error: ${err.error}. Check the console for further details.`);
+        }
+      });
     });
   }
 
@@ -50,15 +62,26 @@ class Auth {
   }
 
   getProfile = (cb) => {
-    let accessToken = this.getAccessToken();
-    this.auth0.client.userInfo(accessToken, (err, profile) => {
-      if (profile) {
-        this.userProfile = profile;
-      }
-      else if(err){
-        console.log(err);
-      }
-      cb(err, profile);
+    import(/* webpackChunkName: "auth0-js" */'auth0-js').then(module => {
+      this.auth0 = new module.WebAuth({
+        domain: AUTH_CONFIG.domain,
+        clientID: AUTH_CONFIG.clientID,
+        redirectUri: AUTH_CONFIG.redirectUri,
+        audience: AUTH_CONFIG.audience,
+        responseType: 'token id_token',
+        scope: 'openid profile'
+      });
+
+      let accessToken = this.getAccessToken();
+      this.auth0.client.userInfo(accessToken, (err, profile) => {
+        if (profile) {
+          this.userProfile = profile;
+        }
+        else if(err){
+          console.log(err);
+        }
+        cb(err, profile);
+      });
     });
   }
 

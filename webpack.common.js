@@ -1,15 +1,14 @@
 const path = require('path'),
       HtmlWebpackPlugin = require('html-webpack-plugin'),
-      MiniCssExtractPlugin = require('mini-css-extract-plugin'),
-      CleanWebpackPlugin = require('clean-webpack-plugin');
+      CleanWebpackPlugin = require('clean-webpack-plugin'),
+      MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: { main: './src/client/js/app.jsx' },
   output: {
-    filename: 'main.bundle.js',
+    filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'wwwroot')
   },
-  devtool: 'inline-source-map',
   module: {
     rules: [
       {
@@ -29,10 +28,6 @@ module.exports = {
   },
   resolve: {
     extensions: ['.js', '.jsx']
-  },
-  devServer: {
-    contentBase: 'wwwroot',
-    port: 7772
   },
   plugins: [
     new CleanWebpackPlugin(['wwwroot']),
