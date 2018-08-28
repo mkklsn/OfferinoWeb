@@ -5,6 +5,13 @@
   ],
   "plugins": [
     "transform-class-properties",
-    "syntax-dynamic-import"
+    "syntax-dynamic-import",
+    "dynamic-import-node",
+    ["@babel/plugin-transform-runtime", {
+      "corejs": false,
+      "helpers": false,
+      "regenerator": true,
+      "useESModules": false
+    }]
   ]
 }

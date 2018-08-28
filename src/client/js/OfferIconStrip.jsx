@@ -10,15 +10,9 @@ class OfferIconStrip extends React.Component {
     }
 
     componentDidMount() {
-        import(/* webpackChunkName: "fa-svg-core" */ '@fortawesome/fontawesome-svg-core').then(module => {
-            library = module.library;
-            library.add(iconSet);
-        });
-
-        import(/* webpackChunkName: "fa-svg-core" */ '@fortawesome/react-fontawesome').then(module => {
-            FontAwesomeIcon = module.FontAwesomeIcon;
-            this.setState({loaded: true});
-        });
+        if(!this.state || !this.state.loaded){
+            this.loadModules();
+        }
     }
 
     render(){
@@ -31,6 +25,16 @@ class OfferIconStrip extends React.Component {
                 { strip }
             </div>
         );
+    }
+
+    loadModules = async () => {
+        const coreModule = await import(/* webpackChunkName: "fa-svg-core" */ '@fortawesome/fontawesome-svg-core');
+        library = coreModule.library;
+        library.add(iconSet);
+
+        const faIconModule = await import(/* webpackChunkName: "fa-svg-core" */ '@fortawesome/react-fontawesome');
+        FontAwesomeIcon = faIconModule.FontAwesomeIcon;
+        this.setState({loaded: true});
     }
 }
 

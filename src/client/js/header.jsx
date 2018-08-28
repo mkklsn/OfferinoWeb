@@ -29,7 +29,7 @@ class HeaderStrip extends React.Component {
         const { userProfile, getProfile, isAuthenticated } = this.props.auth;
 
         this.setState({ profile: undefined});
-
+        
         if(!isAuthenticated())
         return;
 
@@ -49,7 +49,7 @@ class HeaderStrip extends React.Component {
 
     getUserAuth = () => {
         return this.state.profile ? 
-            <span>{this.state.profile.nickname}</span> :
+            <span className="user-nickname">{this.state.profile.nickname}</span> :
             <button className="btn-sign-in" onClick={this.login}>
                 Sign in
             </button>

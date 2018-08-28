@@ -10,7 +10,7 @@ class Content extends React.Component {
     render(){
         return(
             <div className="content">
-                <Feed offers={[]}/>
+                <Feed />
             </div>  
         );
     }

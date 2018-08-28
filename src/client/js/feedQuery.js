@@ -1,9 +1,9 @@
 import 'whatwg-fetch';
 
-const GetOffers = (itemCountToSkip, callback) => {
+const GetOffers = async (itemCountToSkip) => {
     const url = `main/offersbybatch?itemCountToSkip=${itemCountToSkip}`;
 
-    fetch(
+    let offerPromise = await fetch(
         url,
         {
             headers: 
@@ -11,9 +11,9 @@ const GetOffers = (itemCountToSkip, callback) => {
                     "Accept": "application/json"
                 })
         }
-    )
-    .then(response => response.json())
-    .then(items => callback(items));
+    );
+
+    return await offerPromise.json();
 }
 
 module.exports = GetOffers;

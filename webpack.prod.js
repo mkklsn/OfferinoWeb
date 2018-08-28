@@ -2,7 +2,8 @@ const webpack = require('webpack'),
       merge = require('webpack-merge'),
       UglifyJSPlugin = require('uglifyjs-webpack-plugin'),
       OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin'),
-      common = require('./webpack.common.js');
+      common = require('./webpack.common.js'),
+      Visualizer = require('webpack-visualizer-plugin');
 
 module.exports = merge(common, {
     mode: 'production',
@@ -20,6 +21,7 @@ module.exports = merge(common, {
     plugins: [
         new webpack.DefinePlugin({
             'process.env.NODE_ENV': JSON.stringify('production')
-        })
+        }),
+        new Visualizer()
     ]
 });

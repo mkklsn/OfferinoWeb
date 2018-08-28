@@ -13,10 +13,10 @@ class Feed extends React.Component {
         };
     }
 
-    componentDidMount(){
+    async componentDidMount(){
         if(!this.state.feedObject){
             this.state.feedObject = document.querySelector('.feed');
-            this.state.feedObject.addEventListener('scroll', this.scrollHandler);
+            this.state.feedObject && this.state.feedObject.addEventListener('scroll', this.scrollHandler);
         }
 
         this.setState({
@@ -25,10 +25,7 @@ class Feed extends React.Component {
             feedObject: this.state.feedObject
         });
         
-        GetOffers(
-            this.state.itemCountToSkip,
-            (items) => this.updateState(items)
-        );
+        await this.loadOffers();
     }
 
     render(){
@@ -37,6 +34,12 @@ class Feed extends React.Component {
                 {this.processFeedItems()}
             </div>
         );
+    }
+
+    loadOffers = async () => {
+        let offers = await GetOffers(this.state.itemCountToSkip);
+
+        this.updateState(offers);
     }
 
     processFeedItems = () => {
@@ -48,7 +51,7 @@ class Feed extends React.Component {
         else {
             let feed = [];
             for(let x = 0; x < 7; x++) {
-                feed.push(<Offer key={x} title={<Loading />} faicon={['','']} />);
+                feed.push(<Offer key={x} title={<Loading />} faicon={undefined} />);
             }
             return feed;
         }
@@ -74,17 +77,14 @@ class Feed extends React.Component {
         });
     }
 
-    scrollHandler = () => {
+    scrollHandler = async () => {
         if(!this.state.feedObject){
             return;
         }
 
         let feed = this.state.feedObject;
         if(feed.scrollTop === (feed.scrollHeight - feed.offsetHeight)){
-            GetOffers(
-                this.state.itemCountToSkip + 30,
-                (items) => this.updateState(items)
-            );
+            await this.loadOffers();
         }
     }
 }
